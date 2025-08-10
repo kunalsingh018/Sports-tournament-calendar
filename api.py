@@ -5,13 +5,12 @@ app = Flask(__name__)
 
 @app.route("/api/tournaments", methods=["GET"])
 def tournaments_api():
-    # Get 'sport' parameter from query string, default to "Cricket"
-    sport = request.args.get("sport", "Cricket")
+    sport = request.args.get("sport")
 
     # Call your existing GenAI fetch function
     data = get_tournaments(sport)
 
-    # Return JSON response
+
     return jsonify(data)
 
 if __name__ == "__main__":
